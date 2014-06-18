@@ -12,8 +12,12 @@
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li> {{ HTML::link('users/register', 'Register') }}</li>
+                @if(!Auth::check())
+                    <li> {{ HTML::link('users/register', 'Register') }}</li>
                     <li> {{ HTML::link('users/login', 'Login') }} </li>
+                @else
+                    <li> {{ HTML::link('users/logout', 'logout') }} </li>
+                @endif
             </ul>
         </div>
     </nav>
