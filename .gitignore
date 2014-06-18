@@ -8,3 +8,5 @@ composer.lock
 Thumbs.db
 /nbproject/private/
 nbproject
+app.php
+session.php
