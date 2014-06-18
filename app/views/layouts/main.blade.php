@@ -18,17 +18,6 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                sdfsdf
-            </div>
-            <div class="col-sm-6">
-                sdfsdf
-            </div>
-        </div>
-    </div>
-    
-    <div class="container">
         @if(Session::has('message'))
             <p class='alert'>{{ Session::get('message') }} </p>
         @endif
