@@ -11,13 +11,15 @@ and open the template in the editor.
     </head>
     <body>
         {{ Form::open(array('url' => 'register_action')) }}
-        <p>Name :</p>
-        <p>{{ Form::text('name') }}</p>
-        <p>Email :</p>
-        <p>{{ Form::text('email') }}</p>
-        <p>Password :</p>
-        <p>{{ Form::password('password') }}</p>
-        <p>{{ Form::submit('Submit') }}</p>
+            <label>Name :</label>
+            {{ Form::text('name') }}<br>
+            <label>Email :</label>
+            {{ Form::text('email') }}<br>
+            <label>Password :</label>
+            {{ Form::password('password') }}<br>
+            <label>Confirm password: </label>
+            {{ Form::password('cpassword') }}<br>
+            {{ Form::submit('Submit') }}
         {{ Form::close() }}
     </body>
 </html>

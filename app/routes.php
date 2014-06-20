@@ -14,9 +14,16 @@
 Route::get('/', function()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     return View::make('hello');
+=======
+    return View::make('layout');
 });
 
+Route::get('users', function() {
+  return View::make('users');
+>>>>>>> a0dbe2f39328307d0061d3e0441a8c923c3b68c0
+});
 Route::get('register', function() 
 {
     return View::make('register');
@@ -37,6 +44,7 @@ Route::get('send_mail', function()
     });
     
     return "mail sent!";
+<<<<<<< HEAD
 });
 =======
     return View::make('layouts/main');
@@ -44,3 +52,6 @@ Route::get('send_mail', function()
 
 Route::controller('users', 'UsersController');
 >>>>>>> master
+=======
+});
+>>>>>>> a0dbe2f39328307d0061d3e0441a8c923c3b68c0
