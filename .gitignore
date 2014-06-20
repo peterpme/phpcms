@@ -6,3 +6,8 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+/nbproject/private/
+nbproject
+app.php
+session.php
+database.php

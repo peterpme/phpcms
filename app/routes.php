@@ -13,6 +13,7 @@
 
 Route::get('/', function()
 {
+<<<<<<< HEAD
     return View::make('hello');
 });
 
@@ -37,3 +38,9 @@ Route::get('send_mail', function()
     
     return "mail sent!";
 });
+=======
+    return View::make('layouts/main');
+});
+
+Route::controller('users', 'UsersController');
+>>>>>>> master
