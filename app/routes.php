@@ -17,4 +17,4 @@ Route::get('/', function()
 });
 
 Route::controller('users', 'UsersController');
-Route::controller('pages', 'PagesController');
+Route::resource('pages', 'PagesController');

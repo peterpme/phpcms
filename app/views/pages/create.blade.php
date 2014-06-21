@@ -1,16 +1,19 @@
-{{ Form::open(array('url'=> 'pages/create-page', 'class' => 'page-create')) }}
-    <h2 class="page-title">Create a Page</h2>
-    
-    <ul>
-        @foreach($errors->all() as $error)
-            <li> {{ $error }}</li>
-        @endforeach
-    </ul>
-    
-    {{ Form::text('page-name', null, array('class'=>'form-control', 'placeholder'=>'Page Title')) }}
-    {{ Form::textarea('page-richtext', null, array('class'=>'form-control', 'placeholder'=>'richtext field')) }}
+{{ Form::open(array('url'=> 'pages', 'class' => 'page-create')) }}
+<h2 class="page-title">Create a Page</h2>
 
-    
-    {{ Form::submit('Create Page', array('class'=>'btn btn-large btn-primary btn-block')) }}
+{{ HTML::ul($errors->all()) }}
+
+<div class='form-group'>
+    {{ Form::label('name', 'Name') }}
+    {{ Form::text('name', null, array('class'=>'form-control', 'placeholder'=>'Page Title')) }}
+</div>
+<div class='form-group'>
+    {{ Form::label('richtext', 'Rich Text Editor:') }}
+    {{ Form::textarea('richtext', null, array('class'=>'form-control', 'placeholder'=>'richtext field')) }}
+</div>
+
+
+
+{{ Form::submit('Create Page', array('class'=>'btn btn-large btn-primary btn-block')) }}
 
 {{ Form::close() }}
