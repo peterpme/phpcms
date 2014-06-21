@@ -13,7 +13,8 @@
 
 Route::get('/', function()
 {
-    return View::make('layouts/main');
+    $this->layout->content = View::make('layouts/main');
 });
 
 Route::controller('users', 'UsersController');
+Route::controller('pages', 'PagesController');

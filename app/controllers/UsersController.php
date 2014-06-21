@@ -1,13 +1,13 @@
 <?php
 
 class UsersController extends BaseController {
+    
+    protected $layout = "layouts.main";
 
     public function __construct() {
         $this->beforeFilter('csrf', array('on' => 'post'));
         $this->beforeFilter('auth', array('only'=>array('getDashboard')));
     }
-
-    protected $layout = "layouts.main";
 
     public function getRegister() {
         $this->layout->content = View::make('users.register');

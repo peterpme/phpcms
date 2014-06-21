@@ -1,8 +1,14 @@
 {{ Form::open(array('url'=>'users/signin', 'class'=>'form-signin')) }}
     <h2 class="form-signin-heading">Please Login</h2>
  
-    {{ Form::text('email', null, array('class'=>'input-block-level', 'placeholder'=>'Email Address')) }}
-    {{ Form::password('password', array('class'=>'input-block-level', 'placeholder'=>'Password')) }}
+    <div class="form-group">
+        {{ Form::label('email', 'Email Address') }}
+        {{ Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'Email Address')) }}
+    </div>
+    <div class="form-group">
+        {{ Form::label('password', 'Password') }}
+        {{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')) }}
+    </div>
  
     {{ Form::submit('Login', array('class'=>'btn btn-large btn-primary btn-block'))}}
 {{ Form::close() }}

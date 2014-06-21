@@ -15,17 +15,21 @@ class PagesController extends BaseController {
         $this->beforeFilter('auth', array('only' => array('getDashboard')));
     }
     
-    public function getCreatePage() {
+    public function getView() {
+        $this->layout->content = View::make('pages.view');
+    }
+    
+    public function getCreate() {
         $this->layout->content = View::make('pages.create');
     }
     
-    public function createPage() {
-        $validator = Validator::make(Input::all(), User:: $rules);
+    public function postCreate() {
+        $validator = Validator::make(Input::all(), Page:: $rules);
         
         if($validator->passes()) {
             $page = new Page;
-            $page->name  = Input::get('name');
-            $page->richtext = Input::get('richtext');
+            $page->name  = Input::get('page-name');
+            $page->richtext = Input::get('page-richtext');
             $page->save();
             
             return Redirect::to('users/dashboard')->with('message', 'Page created');
@@ -34,12 +38,12 @@ class PagesController extends BaseController {
         }
     }
     
-    public function deletePage() {
-        
+    public function getDelete() {
+        $this->layout->content = View::make('pages.delete');
     }
     
-    public function updatePage() {
-        
+    public function getUpdate() {
+        $this->layout->content = View::make('pages.update');
     }
     
     

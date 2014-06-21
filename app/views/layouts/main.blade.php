@@ -17,7 +17,7 @@
                     <li> {{ HTML::link('users/login', 'Login') }} </li>
                 @else
                     <li> {{ HTML::link('users/logout', 'logout') }} </li>
-                    <li> {{ HTML::link('pages', 'Pages') }} </li>
+                    <li> {{ HTML::link('pages/view', 'Pages') }} </li>
                 @endif
             </ul>
         </div>
@@ -26,8 +26,10 @@
         @if(Session::has('message'))
             <p class='alert'>{{ Session::get('message') }} </p>
         @endif
+        
+        {{ $content }} 
+
     </div>
     
-    {{ $content }} 
 </body>
 </html>
