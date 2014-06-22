@@ -7,13 +7,11 @@
  */
 
 class PagesController extends BaseController {
-    
+        
     public function __construct() {
         $this->beforeFilter('csrf', array('on' => 'post'));
         $this->beforeFilter('auth', array('only' => array('getDashboard')));
     }
-
-    protected $layout = "layouts.main";
 
     /**
      * Display a listing of the resource.
@@ -56,6 +54,10 @@ class PagesController extends BaseController {
             
             Session::flash('message', 'Successful Page Creation');
             return Redirect::to('pages');
+        } else {
+            return Redirect::to('pages/create')
+                    ->withErrors($validator)
+                    ->withInput(Input::all());
         }
     }
 
@@ -81,7 +83,11 @@ class PagesController extends BaseController {
      * @return Response
      */
     public function edit($id) {
-        //
+        
+        $page = Page::find($id);
+        
+        return View::make('pages.edit')
+                ->with('page', $page);
     }
 
     /**
@@ -91,7 +97,15 @@ class PagesController extends BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+        
+        // do I really need validation here?
+            $page = Page::find($id);
+            $page->name = Input::get('name');
+            $page->richtext = Input::get('richtext');
+            $page->save();
+            
+            Session::flash('message', 'Updated Page');
+            return Redirect::to('pages');
     }
 
     /**
@@ -101,39 +115,10 @@ class PagesController extends BaseController {
      * @return Response
      */
     public function destroy($id) {
-        //
+        $page = Page::find($id);
+        $page->delete();
+        
+        Session::flash('message', 'Deleted Page');
+        return Redirect::to('pages');
     }
-    
-
-//    public function getView() {
-//        $this->layout->content = View::make('pages.view');
-//    }
-//
-//    public function getCreate() {
-//        $this->layout->content = View::make('pages.create');
-//    }
-//
-//    public function postCreate() {
-//        $validator = Validator::make(Input::all(), Page:: $rules);
-//
-//        if ($validator->passes()) {
-//            $page = new Page;
-//            $page->name = Input::get('page-name');
-//            $page->richtext = Input::get('page-richtext');
-//            $page->save();
-//
-//            return Redirect::to('users/dashboard')->with('message', 'Page created');
-//        } else {
-//            return Redirect::to('pages/create')->with('message', 'Errors Occured. Page not created')->withErrors($validator)->withInput();
-//        }
-//    }
-//
-//    public function getDelete() {
-//        $this->layout->content = View::make('pages.delete');
-//    }
-//
-//    public function getUpdate() {
-//        $this->layout->content = View::make('pages.update');
-//    }
-
 }
