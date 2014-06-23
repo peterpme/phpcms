@@ -26,7 +26,7 @@
         </nav>
         <div class="container">
             @if(Session::has('message'))
-            <p class='alert'>{{ Session::get('message') }} </p>
+            <p class='alert alert-info'>{{ Session::get('message') }} </p>
             @endif
 
             @yield('content')

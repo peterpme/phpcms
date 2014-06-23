@@ -17,4 +17,7 @@ Route::get('/', function()
 });
 
 Route::controller('users', 'UsersController');
+
 Route::resource('pages', 'PagesController');
+
+Route::resource('password', 'RemindersController');

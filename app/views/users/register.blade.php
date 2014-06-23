@@ -1,3 +1,6 @@
+@extends('layouts.main')
+
+@section('content')
 {{ Form::open(array('url'=>'users/create', 'class'=>'form-signup')) }}
     <h2 class="page-title">Please Register</h2>
  
@@ -27,5 +30,7 @@
         {{ Form::label('password_confirmation', 'Confirm Password') }}
         {{ Form::password('password_confirmation', array('class'=>'form-control', 'placeholder'=>'Confirm Password')) }}
     </div>
-    {{ Form::submit('Register', array('class'=>'btn btn-large btn-primary btn-block')) }}
+    {{ Form::submit('Register', array('class'=>'btn btn-large btn-primary')) }}
 {{ Form::close() }}
+
+@stop

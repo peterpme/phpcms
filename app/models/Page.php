@@ -10,7 +10,7 @@ class Page extends Eloquent {
     
     public static $rules = array(
         'name' => 'required|min:4',
-        'richtext' => 'alpha_num'
+        'richtext' => ''
     );
         
     protected $fillable = array('name', 'richtext');
