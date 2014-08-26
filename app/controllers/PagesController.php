@@ -69,7 +69,6 @@ class PagesController extends BaseController {
      */
     public function show($id) {
         
-        
         $page = Page::find($id);
         
         return View::make('pages.show')
