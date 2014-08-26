@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function()
-{
-    $this->layout->content = View::make('layouts/main');
+Route::controller('users', 'UsersController');
+Route::resource('pages', 'PagesController');
+Route::controller('password', 'RemindersController');
+Route::get('/', function(){
+    return View::make('home.home');
 });
 
-Route::controller('users', 'UsersController');
-
-Route::resource('pages', 'PagesController');
-
-Route::resource('password', 'RemindersController');
+Route::resource('websites', 'WebsitesController');
+Route::resource('userpreferences', 'UserPreferencesController');
