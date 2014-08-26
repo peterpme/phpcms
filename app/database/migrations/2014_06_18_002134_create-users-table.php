@@ -18,9 +18,18 @@ class CreateUsersTable extends Migration {
                 $table->string('lastname', 20);
                 $table->string('email', 100)->unique();
                 $table->string('password', 64);
-                $table->text('remember_token')->nullable();
+                $table->text('remember_token', 100)->nullable();
                 $table->timestamps();
+                $table->softDeletes();
             });
+            
+//            Schema::create('role_user', function($table){
+//                $table->increments('id');
+//                $table->integer('role_id');
+//                $table->integer('user_id');
+//                
+//                $table->index(array('id', 'role_id', 'user_id'));
+//            });
 	}
 
 	/**
