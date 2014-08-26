@@ -2,7 +2,7 @@
 @section('content')
 <h1>Password Reminder</h1>
 
-{{ Form::open(array('url'=> 'password/remind', 'method'=> 'POST')) }}
+{{ Form::open(array('action'=> 'RemindersController@store')) }}
 
     <div class='form-group'>
         {{ Form::label('email', 'Email Address') }}

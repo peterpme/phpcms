@@ -3,7 +3,7 @@
 
 <h1>Password Reset</h1>
 
-{{ Form::open(array('url'=> 'password/reset', 'method'=> 'POST')) }}
+{{ Form::open(array('action'=> 'RemindersController@show')) }}
 
 <div class='form-group'>
     {{ Form::label('email', 'Email Address') }}
