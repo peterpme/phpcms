@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-USA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link rel="stylesheet" href='//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
         <title>PHPCMS</title>
+        {{ HTML:: style('css/bootstrap.min.css') }}
         {{ HTML:: style('css/main.css') }}
     </head>
     <body>
@@ -18,7 +18,8 @@
                     <li> {{ HTML::link('users/register', 'Register') }}</li>
                     <li> {{ HTML::link('users/login', 'Login') }} </li>
                     @else
-                    <li> {{ HTML::link('pages', 'Pages') }} </li>
+                    <li> {{ HTML::link('userpreferences/show', 'Your Account') }} </li>
+                    <li> {{ HTML::link('websites', 'Websites') }} </li>
                     <li> {{ HTML::link('users/logout', 'Logout') }} </li>
                     @endif
                 </ul>
