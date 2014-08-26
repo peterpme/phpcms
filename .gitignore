@@ -11,3 +11,4 @@ nbproject
 app.php
 session.php
 database.php
+public/css
