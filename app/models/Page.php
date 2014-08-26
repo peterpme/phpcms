@@ -16,6 +16,9 @@ class Page extends Eloquent {
     protected $fillable = array('name', 'richtext');
     
     protected $table='pages';
-   
+    
+    public function website() {
+        return $this->belongsTo('Website');
+    }
     
 }
